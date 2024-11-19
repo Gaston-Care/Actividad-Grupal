@@ -1,0 +1,78 @@
+-------------------------------------------CREAR EPICA----------------------------------------------------------------
+from django.contrib.auth.models import User
+from scrum.models import Epica
+
+# Obtener el responsable de la epica
+responsable = User.objects.get(id=4)  # guardo el responsable.
+
+# Crear la épica.
+nueva_epica = Epica(
+    nombre='Implementar métodos de pago',
+    descripcion='Desarrollar la funcionalidad para permitir a los usuarios realizar pagos a través de diferentes métodos (tarjeta de crédito, PayPal, etc.).',
+    criterios_aceptacion=(
+        'Los usuarios deben poder seleccionar su método de pago preferido.'
+    ),
+    estado='POR_HACER',
+    responsable=responsable,  # Asigno el responsable
+    esfuerzo_estimado_total=8,
+    fecha_inicio='2024-02-01',
+    fecha_fin='2024-02-15'
+)
+
+# Guardo la épica en la base de datos
+nueva_epica.save()
+
+-------------------------------------------CREAR SPRINT----------------------------------------------------------------
+from django.contrib.auth.models import User
+from scrum.models import Tarea, Sprint
+
+scrum_master = User.objects.get(id=1)  # Guardo el scrum Master del sprint
+
+nuevo_sprint = Sprint(
+    nombre='Sprint 2',
+    objetivo='Mejorar la experiencia de usuario en la aplicación.',
+    fecha_inicio='2024-02-01',
+    fecha_fin='2024-02-14',
+    velocidad=8,
+    scrum_master=scrum_master
+)
+
+# Guarda el sprint en la base de datos
+nuevo_sprint.save()
+
+-------------------------------------------CREAR TAREA----------------------------------------------------------------
+responsable1 = User.objects.get(id=6)  # Guardo el responsable de la tarea
+
+# Crear la tarea
+tarea3 = Tarea(
+    titulo='Optimizar la carga de la página',
+    descripcion='Reducir el tiempo de carga de la página de inicio mediante la optimización de imágenes y recursos.',
+    criterios_aceptacion='La página de inicio debe cargar en menos de 2 segundos.',
+    prioridad=2,
+    estado='POR_HACER',
+    esfuerzo_estimado=4,
+    responsable=responsable1,
+    sprint_asignado=nuevo_sprint
+)
+
+# Guarda la tercera tarea en la base de datos
+tarea3.save()
+
+# Agregar la tarea al backlog del sprint
+nuevo_sprint.backlog_sprint.add(tarea3)
+
+---------------------------------------AÑADIR EQUIPO DE DESARROLLO----------------------------------------------------------
+
+from django.contrib.auth.models import User
+from scrum.models import Sprint
+
+# Obtengo los desarrolladores
+desarrollador1 = User.objects.get(id=5)
+desarrollador2 = User.objects.get(id=6)
+desarrollador3 = User.objects.get(id=7)
+
+# Agrego los desarrolladores al equipo de desarrollo del sprint
+nuevo_sprint.equipo_desarrollo.add(desarrollador1, desarrollador2, desarrollador3)
+
+---------------------------------------AÑADIR DEPENDENCIAS----------------------------------------------------------
+tarea8.dependencias.add(tarea2)

@@ -1,0 +1,11 @@
+Propuesta de Mejoras en los modelos: 
+
+Tarea:
+- Agregar un campo "fecha_límite"
+- Agregar un campo "comentarios" para que los miembros del equipo puedan dejar comentarios sobre el progreso o problemas relacionados con la tarea.
+- Bloqueadores automaticos basados en dependencias permiten una gestion mas eficiente de las tareas, cambiar el campo a booleano o restringir entre "BLOQUEADO" y "DISPONIBLE".
+
+Sprint:
+- Agregar un método “duracion” para calcular cuánto dura un sprint en días.
+- Agregar un campo "comentarios" para que los miembros del equipo puedan dejar comentarios sobre el progreso o problemas relacionados con el sprint.
+

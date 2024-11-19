@@ -1,0 +1,60 @@
+# 1. Obtener todas las tareas asignadas a un usuario específico
+from django.contrib.auth.models import User
+from scrum.models import Tarea
+usuario = User.objects.get(id=5)
+tareas_asignadas = Tarea.objects.filter(responsable=usuario)
+print(tareas_asignadas)
+
+# 2. Obtener las tareas completadas dentro de un sprint determinado
+from scrum.models import Tarea, Sprint
+sprint = Sprint.objects.get(id=1)
+tareas_completadas = Tarea.objects.filter(sprint_asignado=sprint, estado='COMPLETADA')
+print(tareas_completadas)
+
+# 3. Listar todas las tareas que dependen de una tarea específica
+from scrum.models import Tarea
+tarea_especifica = Tarea.objects.get(id=17)
+print(tarea_especifica.dependencias.all())
+
+# 4. Listar todas las épicas que tienen tareas en progreso
+from scrum.models import Epica
+epicas_en_progreso = Epica.objects.filter(tareas_asociadas__estado='EN_PROGRESO')
+print(epicas_en_progreso)
+
+# 5. Calcular el número total de tareas por estado
+from django.db.models import Count
+from scrum.models import Tarea
+tareas_por_estado = Tarea.objects.values('estado').annotate(total=Count('id'))
+print(tareas_por_estado)
+
+# 6. Obtener la suma de esfuerzo estimado de todas las tareas asociadas a una épica específica
+from scrum.models import Epica
+from django.db.models import Sum
+epica = Epica.objects.get(id=1)  # Reemplaza 1 con el ID de la épica
+esfuerzo_total = epica.tareas_asociadas.aggregate(Sum('esfuerzo_estimado'))
+print(esfuerzo_total)
+
+# 7. Listar los sprints que tiene un Scrum Master asignado
+from scrum.models import Sprint
+sprints_con_scrum_master = Sprint.objects.filter(scrum_master__isnull=False)
+print(sprints_con_scrum_master)
+
+# 8. Obtener el progreso total de una épica en base a las tareas completadas
+from scrum.models import Epica
+epica = Epica.objects.get(id=1)  # Reemplaza 1 con el ID de la épica
+tareas_totales = epica.tareas_asociadas.count()
+tareas_completadas = epica.tareas_asociadas.filter(estado='COMPLETADA').count()
+progreso = (tareas_completadas / tareas_totales) * 100 if tareas_totales > 0 else 0
+print(progreso)
+
+# 9. Obtener el backlog de un sprint específico y sus responsables
+from scrum.models import Sprint
+sprint = Sprint.objects.get(id=1)  # Reemplaza 1 con el ID del sprint
+backlog = sprint.backlog_sprint.select_related('responsable')
+print(backlog)
+
+# 10. Listar todas las tareas que están bloqueadas
+from scrum.models import Tarea
+tareas_bloqueadas = Tarea.objects.filter(bloqueadores__isnull=False)
+print(tareas_bloqueadas)
+

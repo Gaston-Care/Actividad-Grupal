@@ -1,0 +1,236 @@
+[
+  {
+    "model": "scrum.epica",
+    "pk": 1,
+    "fields": {
+      "nombre": "Implementar registro y login",
+      "descripcion": "Desarrollar el sistema de registro y login para usuarios.",
+      "criterios_aceptacion": "El registro y login deben ser funcionales y seguros.",
+      "estado": "POR_HACER",
+      "responsable": null,
+      "esfuerzo_estimado_total": 0,
+      "fecha_inicio": null,
+      "fecha_fin": null,
+      "progreso": 0.0,
+      "dependencias": []
+    }
+  },
+  {
+    "model": "scrum.epica",
+    "pk": 2,
+    "fields": {
+      "nombre": "Implementar vistas",
+      "descripcion": "Crear las vistas para la funcionalidad de la aplicación.",
+      "criterios_aceptacion": "Todas las vistas deben estar implementadas y funcionando correctamente.",
+      "estado": "POR_HACER",
+      "responsable": null,
+      "esfuerzo_estimado_total": 0,
+      "fecha_inicio": null,
+      "fecha_fin": null,
+      "progreso": 0.0,
+      "dependencias": [1]
+    }
+  },
+  {
+    "model": "scrum.epica",
+    "pk": 3,
+    "fields": {
+      "nombre": "Implementar métodos de pago",
+      "descripcion": "Desarrollar la funcionalidad de métodos de pago en la aplicación.",
+      "criterios_aceptacion": "Los métodos de pago deben ser seguros y funcionales.",
+      "estado": "POR_HACER",
+      "responsable": null,
+      "esfuerzo_estimado_total": 0,
+      "fecha_inicio": null,
+      "fecha_fin": null,
+      "progreso": 0.0,
+      "dependencias": [1]
+    }
+  },
+  {
+    "model": "scrum.sprint",
+    "pk": 1,
+    "fields": {
+      "nombre": "Sprint 1",
+      "objetivo": "Desarrollar las vistas necesarias para la aplicación web.",
+      "fecha_inicio": "2024-01-01",
+      "fecha_fin": "2024-01-15",
+      "velocidad": 5,
+      "scrum_master": null,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "scrum.sprint",
+    "pk": 2,
+    "fields": {
+      "nombre": "Sprint 2",
+      "objetivo": "Desarrollar las funcionalidades de registro y login de usuarios.",
+      "fecha_inicio": "2024-01-16",
+      "fecha_fin": "2024-01-30",
+      "velocidad": 5,
+      "scrum_master": null,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "scrum.sprint",
+    "pk": 3,
+    "fields": {
+      "nombre": "Sprint 3",
+      "objetivo": "Desarrollar las restricciones necesarias para ciertas vistas.",
+      "fecha_inicio": "2024-01-31",
+      "fecha_fin": "2024-02-15",
+      "velocidad": 5,
+      "scrum_master": null,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z"
+    }
+  },
+  {
+    "model": "scrum.tarea",
+    "pk": 1,
+    "fields": {
+      "titulo": "Crear el formulario de registro.",
+      "descripcion": "Crear un formulario de registro para que los usuarios puedan registrarse.",
+      "criterios_aceptacion": "El formulario debe ser funcional y contener validaciones.",
+      "prioridad": 1,
+      "estado": "POR_HACER",
+      "esfuerzo_estimado": 5,
+      "responsable": null,
+      "sprint_asignado": 2,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z",
+      "dependencias": [],
+      "bloqueadores": null
+    }
+  },
+  {
+    "model": "scrum.tarea",
+    "pk": 2,
+    "fields": {
+      "titulo": "Implementar la vista de registro de usuarios y guardar en la base de datos.",
+      "descripcion": "Desarrollar la vista que maneja el registro de usuarios.",
+      "criterios_aceptacion": "Los usuarios deben poder registrarse correctamente.",
+      "prioridad": 2,
+      "estado": "POR_HACER",
+      "esfuerzo_estimado": 5,
+      "responsable": null,
+      "sprint_asignado": 2,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z",
+      "dependencias": [1],
+      "bloqueadores": null
+    }
+  },
+  {
+    "model": "scrum.tarea",
+    "pk": 3,
+    "fields": {
+      "titulo": "Crear la vista de login con validación de credenciales.",
+      "descripcion": "Implementar la vista de inicio de sesión con validación de usuario y contraseña.",
+      "criterios_aceptacion": "Los usuarios deben poder iniciar sesión si las credenciales son correctas.",
+      "prioridad": 3,
+      "estado": "POR_HACER",
+      "esfuerzo_estimado": 4,
+      "responsable": null,
+      "sprint_asignado": 2,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z",
+      "dependencias": [],
+      "bloqueadores": null
+    }
+  },
+  {
+    "model": "scrum.tarea",
+    "pk": 4,
+    "fields": {
+      "titulo": "Implementar el sistema de autenticación y sesiones en Django.",
+      "descripcion": "Configurar la autenticación y manejo de sesiones en la aplicación.",
+      "criterios_aceptacion": "Los usuarios deben poder mantenerse conectados después del inicio de sesión.",
+      "prioridad": 4,
+      "estado": "POR_HACER",
+      "esfuerzo_estimado": 5,
+      "responsable": null,
+      "sprint_asignado": 2,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z",
+      "dependencias": [2],
+      "bloqueadores": null
+    }
+  },
+  {
+    "model": "scrum.tarea",
+    "pk": 5,
+    "fields": {
+      "titulo": "Crear la vista para la creación de posts o productos.",
+      "descripcion": "Desarrollar la vista donde los usuarios pueden crear nuevos posts o productos.",
+      "criterios_aceptacion": "La vista debe permitir la creación de posts correctamente.",
+      "prioridad": 5,
+      "estado": "POR_HACER",
+      "esfuerzo_estimado": 4,
+      "responsable": null,
+      "sprint_asignado": 1,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z",
+      "dependencias": [],
+      "bloqueadores": null
+    }
+  },
+  {
+    "model": "scrum.tarea",
+    "pk": 6,
+    "fields": {
+      "titulo": "Implementar la vista de detalle para un post o producto específico.",
+      "descripcion": "Crear la vista que muestra el detalle de un post o producto seleccionado.",
+      "criterios_aceptacion": "La vista debe mostrar correctamente la información del post o producto.",
+      "prioridad": 6,
+      "estado": "POR_HACER",
+      "esfuerzo_estimado": 4,
+      "responsable": null,
+      "sprint_asignado": 1,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z",
+      "dependencias": [],
+      "bloqueadores": null
+    }
+  },
+  {
+    "model": "scrum.tarea",
+    "pk": 7,
+    "fields": {
+      "titulo": "Implementar la vista de carrito de compras donde los usuarios puedan agregar o eliminar productos.",
+      "descripcion": "Crear la vista para manejar el carrito de compras.",
+      "criterios_aceptacion": "Los usuarios deben poder agregar y eliminar productos en el carrito.",
+      "prioridad": 7,
+      "estado": "POR_HACER",
+      "esfuerzo_estimado": 5,
+      "responsable": null,
+      "sprint_asignado": 3,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z",
+      "dependencias": [],
+      "bloqueadores": null
+    }
+  },
+  {
+    "model": "scrum.tarea",
+    "pk": 8,
+    "fields": {
+      "titulo": "Investigar plataformas de pago (e.g., Stripe, PayPal).",
+      "descripcion": "Realizar un análisis de las plataformas de pago disponibles para su integración.",
+      "criterios_aceptacion": "Debe presentarse un informe sobre las plataformas de pago.",
+      "prioridad": 8,
+      "estado": "POR_HACER",
+      "esfuerzo_estimado": 3,
+      "responsable": null,
+      "sprint_asignado": 3,
+      "fecha_creacion": "2024-10-23T16:04:00Z",
+      "fecha_actualizacion": "2024-11-23T00:00:00Z",
+      "dependencias": [],
+      "bloqueadores": null
+    }
+  }
+]
